@@ -1,0 +1,62 @@
+FORMAT: 1A
+HOST: http://localhost/tools
+
+# API Tools
+
+## GET /tools
+
+    + Response 200 (application/json)
+    + Attributes
+        - tools (array[tools])
+
+## GET /tools?tag=myTag 
+
++ Parameters
+    + suaTag: (string, required) - nome da tag para pesquisa.
+
++ Response 200 (application/json)
+    + Attributes
+        - tools (Tools)
+
+
+## DELETE /tools/?id={id}
+
++ Parameters
+    + id: (int, required) - ID da tools.
+
++ Response 200 (text/plain)
+    
+    Tool com id = {id} apagada!
+
+## PUT /tools/?id={id}
+
++ Parameters
+    + id: (int, required) - ID para edição.
+
++ Request (application/json)
+    + Attributes
+        - tools (Tools)
+
++ Response 200 (application/json)
+    + Attributes
+        - tools (Tools)
+
+### POST /tools/
+
++ Request (application/json)
+    + Attributes
+        - plactoolses (Tools Create)
+
++ Response 200 (application/json)
+    + Attributes
+        - tools (tools Full)
+
+# Data Structures
+
+## Tools Create (object)
+
+- title: 'Notion' (string, required) - Titulo do tool.
+- link: 'https://notion.so' (string, required) - Link do tool.
+- description: 'Fake REST API' (string, required) - Descrição da tool.
+- tags: 'web, api' (string, required) - Tags da
+
